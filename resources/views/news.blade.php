@@ -147,6 +147,10 @@
                         <div class="col-lg-4">
                             <div class="sidebar">
 
+                                <div class="new-post-button">
+                                    <div class="button new-post text-center trans_200"><a href="#">Új post</a></div>
+                                </div>
+
                                 <div class="sidebar-section">
                                     <div class="sidebar-section-title">
                                         <h3>Archives</h3>

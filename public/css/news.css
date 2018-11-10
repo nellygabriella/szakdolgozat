@@ -255,6 +255,40 @@ ul
     width: 100%;
 }
 
+.new-post-button
+{
+   margin-top: 50px;
+}
+
+.button
+{
+    display: inline-block;
+	width: 300px;
+	height: 53px;
+	vertical-align: middle;
+	margin-right: 9px;
+	margin-bottom: 15px;
+}
+
+.button:hover
+{
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+}
+
+.button a
+{
+    line-height: 53px;
+	display: block;
+	font-size: 16px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.new-post
+{
+    background: #ffb606;
+}
+
 .sidebar-section
 {
     margin-top: 48px;
