@@ -1,0 +1,172 @@
+.super-container
+{
+    width: 100%;
+    overflow: hidden;
+}
+
+.home
+{
+    width: 100%;
+    height: 445px;
+}
+
+.home-background-container
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.prlx-parent
+{
+    overflow: hidden;
+}
+
+.home-background
+{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.prlx
+{
+    height: 130% !important;
+}
+
+.home-content
+{
+    position: absolute;
+    left: 50%;
+    bottom: 109px;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: #ffb606;
+    padding-top: 25px;
+    padding-bottom: 35px;
+    padding-left: 45px;
+    padding-right: 42px;
+}
+
+.home-content h1
+{
+    font-size: 72px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 0.5;
+}
+
+.notes
+{
+    margin-top: 300px;
+}
+
+.page_section
+{
+    padding-top: 117px;
+    padding-bottom: 117px;
+}
+
+.section-title h1
+{
+    display: block;
+    color: #1a1a1a;
+    font-weight: 500;
+    padding-top: 24px;
+}
+
+.section-title h1::before
+{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 55px;
+    height: 4px;
+    content: '';
+    background: #ffb606;
+}
+
+.note-boxes
+{
+    margin-top: 68px;
+}
+
+.note-box
+{
+    margin-bottom: 108px;
+}
+
+.note-box:nth-last-child(-n+3)
+{
+    margin-bottom: 0px;
+}
+
+.card
+{
+    display: block;
+    background: #f8f9fb;
+    border: none;
+}
+
+.card-img-top
+{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.card-body
+{
+    padding-top: 0px;
+    padding-top: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.card-title
+{
+    margin-top: 55px;
+}
+
+.card-title a:hover
+{
+    color: #a5a5a5;
+}
+
+.card-text
+{
+    font-size: 15px;
+    font-weight: 500;
+    color: #a5a5a5;
+    margin-top: -12px;
+}
+
+.download-box
+{
+    width: 100%;
+    height: 67px;
+    background: #ffb606;
+    margin-top: 41px;
+    padding-left: 40%;
+    
+}
+
+.download-box span
+{
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 7px;
+}
