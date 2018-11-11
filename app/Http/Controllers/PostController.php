@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view(createnews.blade);
+        return view(news.createnews);
     }
 
     /**
@@ -34,7 +34,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,array(
+            'title'=>'required|max:255',
+            'body'=>'required'
+        ));
+
+        $post = new Post;
+        $post->title=$request->title;
+        $post->body=$request->body;
+        $post->save();
+
+        return redirect()->route('posts.show',$post->id);
     }
 
     /**

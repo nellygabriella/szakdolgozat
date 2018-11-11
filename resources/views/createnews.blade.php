@@ -27,14 +27,14 @@
             </div>
 
             <div class="create-post">
-            {!! Form::open(['url' => 'foo/bar']) !!}
+            {!! Form::open(['route' => 'posts.store']) !!}
                 {{Form::label('title', 'Title: ')}}
                 {{Form::text('title', null, array('class'=>'form-control'))}}
 
                 {{Form::label('body','Post Body: ')}}
-                {{Forum::textarea('body',null,array('class'=>'form-control'))}}
+                {{Form::textarea('body',null,array('class'=>'form-control'))}}
 
-                {{Forum::submit('Create Post', array('class'=>'btn btn-success btn-lg btn'))}}
+                {{Form::submit('Create Post', array('class'=>'btn btn-success btn-lg btn'))}}
             {!! Form::close() !!}
             </div>
 

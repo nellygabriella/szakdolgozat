@@ -11,30 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@getIndex');
 
-Route::get('hirek', function () {
-    return view('news');
-});
+Route::get('/hirek', 'PagesController@getNews');
 
-Route::get('allasok', function () {
-    return view('jobs');
-});
+Route::get('/allasok', 'PagesController@getJobs');
 
-Route::get('jegyzetek', function () {
-    return view('notes');
-});
+Route::get('/jegyzetek', 'PagesController@getNotes');
 
-Route::get('projektek', function () {
-    return view('projects');
-});
+Route::get('/projektek', 'PagesController@getProjects');
 
-Route::get('kapcsolat', function () {
-    return view('contact');
-});
+Route::get('/kapcsolat', 'PagesController@getContact');
 
-Route::get('forum', function () {
-    return view('questions');
-});
+Route::get('/forum', 'PagesController@getQestions');
