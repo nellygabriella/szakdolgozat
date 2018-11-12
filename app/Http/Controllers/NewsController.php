@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
-class PostController extends Controller
+use Illuminate\Http\Request;
+use App\News;
+
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //return view('news.create');
+        return view('news.create');
     }
 
     /**
@@ -34,17 +36,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        /*$this->validate($request,array(
+        $this->validate($request,array(
             'title'=>'required|max:255',
             'body'=>'required'
         ));
 
-        $post = new Post;
-        $post->title=$request->title;
-        $post->body=$request->body;
-        $post->save();
+        $news = new News;
+        $news->title=$request->title;
+        $news->body=$request->body;
+        $news->save();
 
-        return redirect()->route('posts.show',$post->id);*/
+        return redirect()->route('news.show',$news->id);
     }
 
     /**

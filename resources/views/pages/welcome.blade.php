@@ -1,51 +1,10 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('main')
 
-        <title>MEduline</title>
+@section('title','| Welcome')
 
-        <!-- Fonts -->
-        <link rel="stylesheet" type="text/css" href="{{ URL::to('/') }}/css/notes.css" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        
-    </head>
-    <body>
-    
-    <div class="super-container">
-
-        <!-- Header -->
-        <header class="header d-flex flex-row">
-            <div class="header-content d-flex flex-row align-items-center">
-
-                <!-- Logo -->
-                <div class="logo-container">
-                    <div class="logo">
-                        <img src="images/logo.png" alt="">
-                        <span>MEduline</span>
-                    </div>
-                </div> 
-
-                <!-- Main Navigation -->
-                <nav class="navbar navbar-expand-sm">
-                    <div class="main-nav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link" href="#">Hírek/Események</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Jegyzetek</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Projektek</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Munkák</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Kérdések</a></li>
-                        </ul>
-                    </div>
-                </nav>   
-                
-            </div>
-        </header>
-
-        <!-- Home -->
+@section('stylesheets')
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('/') }}/css/index.css" />
+@endsection
 
         <div class="home">
             <div class="slider-container">
@@ -125,7 +84,7 @@
                 </div>
             </div>
         </div>
-
+        @section('content')
         <div class="popular page-section">
             <div class="container">
                 <div class="row">
@@ -277,111 +236,5 @@
             </div>
         </div>
 
-        <footer class="footer">
-            <div class="container">
-
-                <div class="newsletter">
-                    <div class="row">
-                        <div class="col">
-                            <div class="section-title text-center">
-                                <h1>Feliratkozás hírlevélre</h1>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col text-center">
-                            <div class="newsletter-form-container mx-auto">
-                                <form action="post">
-                                    <div class="newsletter-form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-center">
-                                        <input id="newsletter_email" class="newsletter-email" type="email" placeholder="Email Address" required="required" data-error="Valid email is required.">
-                                        <button id="newsletter_submit" type="submit" class="newsletter-submit-btn trans_300" value="Submit">Feliratkozás</button>
-                                    </div>
-                                </form>    
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="footer-content">
-                    <div class="row">
-
-                        <div class="col-lg-3 footer-col">
-
-                            <div class="logo-conatiner">
-                                <div class="logo">
-                                    <img src="images/logo.png" alt="">
-                                    <span>MEduline</span>
-                                </div>
-                            </div>
-
-                            <p class="footer-about-text">Nulla eleifend, tellus ut tempus venenatis, enim erat rutrum eros, quis cursus urna mauris a ante. Ut ante tellus, scelerisque tristique eros sit amet, sollicitudin ornare lectus.</p>
-                        </div>
-
-                        <div class="col-lg-3 footer-col">
-                            <div class="footer-column-title">Menu</div>
-                            <div class="footer-column-content">
-                                <ul>
-                                    <li class="footer-list-item"><a href="#">Home</a></li>
-                                    <li class="footer-list-item"><a href="#">Home</a></li>
-                                    <li class="footer-list-item"><a href="#">Home</a></li>
-                                    <li class="footer-list-item"><a href="#">Home</a></li>
-                                    <li class="footer-list-item"><a href="#">Home</a></li>
-                                    <li class="footer-list-item"><a href="#">Home</a></li> 
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 footer-col">
-                            <div class="footer-column-title">Useful Links</div>
-                            <div class="footer-column-content">
-                                <ul>
-                                    <li class="footer-list-item"><a href="#">Testimonials</a></li>
-                                    <li class="footer-list-item"><a href="#">FAQ</a></li>
-                                    <li class="footer-list-item"><a href="#">Community</a></li>
-                                    <li class="footer-list-item"><a href="#">Campus Pictures</a></li>
-                                    <li class="footer-list-item"><a href="#">Tuitions</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 footer-col">
-                            <div class="footer-column-title">Contact</div>
-                            <div class="footer-column-content">
-                                <ul>
-                                    <li class="footer-contact-item">
-                                        <div class="footer-contact-icon">
-                                            <img src="images/placeholder.svg">Blvd Libertad, 34 m05200 Arévalo
-                                        </div>
-                                    </li>
-                                    <li class="footer-contact-item">
-                                        <div class="footer-contact-icon">
-                                            <img src=src="images/smartphone.svg">0034 37483 2445 322
-                                        </div>
-                                    </li>
-                                    <li class="footer-contact-item">
-                                        <div class="footer-contact-icon">
-                                            <img src="images/envelope.svg">hello@company.com
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> 
-
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-
-
-
         
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    </body>
-</html>
+@endsection

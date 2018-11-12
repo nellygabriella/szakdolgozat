@@ -13,7 +13,7 @@
 
 Route::get('/', 'PagesController@getIndex');
 
-Route::get('/hirek', 'PagesController@getNews');
+//Route::get('/hirek', 'PagesController@getNews');
 
 Route::get('/allasok', 'PagesController@getJobs');
 
@@ -23,4 +23,10 @@ Route::get('/projektek', 'PagesController@getProjects');
 
 Route::get('/kapcsolat', 'PagesController@getContact');
 
-Route::get('/forum', 'PagesController@getQestions');
+Route::get('/forum', 'PagesController@getQuestions');
+
+Route::resource('news', 'NewsController');
+
+Route::group(['middlewire'=>['web']], function(){
+
+});

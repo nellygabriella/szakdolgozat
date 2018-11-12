@@ -26,8 +26,9 @@
                 </div>
             </div>
 
+        <div class="col-lg-8">
             <div class="create-post">
-            {!! Form::open(['route' => 'posts.store']) !!}
+            {!! Form::open(['route' => 'news.store']) !!}
                 {{Form::label('title', 'Title: ')}}
                 {{Form::text('title', null, array('class'=>'form-control'))}}
 
@@ -37,6 +38,7 @@
                 {{Form::submit('Create Post', array('class'=>'btn btn-success btn-lg btn'))}}
             {!! Form::close() !!}
             </div>
+        </div>
 
         </div>
     </body>
