@@ -11,22 +11,21 @@
 |
 */
 
-Route::get('/', 'PagesController@getIndex');
 
-//Route::get('/hirek', 'PagesController@getNews');
-
-Route::get('/allasok', 'PagesController@getJobs');
-
-Route::get('/jegyzetek', 'PagesController@getNotes');
-
-Route::get('/projektek', 'PagesController@getProjects');
-
-Route::get('/kapcsolat', 'PagesController@getContact');
-
-Route::get('/forum', 'PagesController@getQuestions');
-
-Route::resource('news', 'NewsController');
 
 Route::group(['middlewire'=>['web']], function(){
 
+    Route::get('/', 'PagesController@getIndex');
+
+    Route::get('/allasok', 'PagesController@getJobs');
+
+    Route::get('/jegyzetek', 'PagesController@getNotes');
+
+    Route::get('/projektek', 'PagesController@getProjects');
+
+    Route::get('/kapcsolat', 'PagesController@getContact');
+
+    Route::get('/forum', 'PagesController@getQuestions');
+
+    Route::resource('news', 'NewsController');
 });

@@ -1,3 +1,4 @@
+@extends('main')
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -17,23 +18,16 @@
     <body>
         <div class="super-container">
 
-            <div class="home">
-                <div class="home-background-container prlx-parent">
-                    <div class="home-background prlx" style="background-image:url(images/news_background.jpg)"></div>
-                </div>
-                <div class="home-content">
-                    <h1>Hírek/Események</h1>
-                </div>
-            </div>
-
+        
+        @section('content')
         <div class="col-lg-8">
             <div class="create-post">
-            {!! Form::open(['route' => 'news.store']) !!}
+            {!! Form::open(array('route' => 'news.store','data-parsley-validate' => '')) !!}
                 {{Form::label('title', 'Title: ')}}
-                {{Form::text('title', null, array('class'=>'form-control'))}}
+                {{Form::text('title', null, array('class'=>'form-control', 'required'=>'', 'maxlength'=>'255'))}}
 
                 {{Form::label('body','Post Body: ')}}
-                {{Form::textarea('body',null,array('class'=>'form-control'))}}
+                {{Form::textarea('body',null,array('class'=>'form-control','required'=>''))}}
 
                 {{Form::submit('Create Post', array('class'=>'btn btn-success btn-lg btn'))}}
             {!! Form::close() !!}
@@ -42,3 +36,4 @@
 
         </div>
     </body>
+@endsection

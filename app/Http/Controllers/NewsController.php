@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\News;
+use Session;
 
 class NewsController extends Controller
 {
@@ -46,6 +47,8 @@ class NewsController extends Controller
         $news->body=$request->body;
         $news->save();
 
+        Session::flash('success','A bejegyzés sikeresen el lett mentve.');
+
         return redirect()->route('news.show',$news->id);
     }
 
@@ -57,7 +60,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        $news=News::find($id);
+        return view('news.show')->withNews($news);
     }
 
     /**
