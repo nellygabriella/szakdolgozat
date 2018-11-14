@@ -5,15 +5,15 @@
 
     <div class="row">
 
-        {!!Form::model($news,['route'=>['news.update',$news->id]])!!}
+        {!!Form::model($news,['route'=>['news.update',$news->id],'method'=>'PUT'])!!}
             <div class="col-md-8">
                 {{Form::label('title','Tile:')}}
-                {{Form::text('title',null,['class'=>'form-control input-lg'])}}
+                {{Form::text('title',null,["class"=>'form-control input-lg'])}}
 
                 {{Form::label('body',"Body",['class'=>'form-spacing-top'])}}
                 {{Form::textarea('body',null,['class'=>'form-control'])}}
             </div>
-        {!! Form::close() !!}
+        
         <div class="col-md-4">
             <div class="well">
                 <dl class="dl-horizontal">
@@ -30,11 +30,13 @@
                         {!!Html::linkRoute('news.show', 'Mégse', array($news->id),array('class'=>'btn btn-primary btn-block'))!!}
                     </div>
                     <div class="col-sm-6">
-                        {!!Html::linkRoute('news.update', 'Mentés', array($news->id),array('class'=>'btn btn-primary btn-block'))!!}
+                        {{Form::submit('Mentés',['class'=>'btn btn-succes btn-block'])}}
                     </div>
                 </div>
             </div>
         </div>
+
+        {!!Form::close()!!}
     </div>
 
 @stop

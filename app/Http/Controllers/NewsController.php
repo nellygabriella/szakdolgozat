@@ -86,7 +86,21 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this -> validate($request, array(
+            'title'=>'required|max:255',
+            'body'=>'required'
+        ));
+
+        $news=News::find($id);
+        
+        $news->title=$request->input('title');
+        $news->body=$request->input('body');
+
+        $news->save();
+
+        Session::flash('success','A post sikeresen mentve.');
+
+        return redirect()->route('news.show', $news->id);
     }
 
     /**
