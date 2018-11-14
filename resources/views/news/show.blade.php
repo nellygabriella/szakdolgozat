@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-md-8">
-            <h1>{{$news->title}}</h1>
+            <h1>{{ $news->title }}</h1>
             <p class="lead">{{$news->body}}</p>
         </div>
         <div class="col-md-4">
