@@ -40,11 +40,13 @@ class NewsController extends Controller
     {
         $this->validate($request,array(
             'title'=>'required|max:255',
+            'slug'=>'required|alpha_dash|min:5|max:255|unique:news,slug',
             'body'=>'required'
         ));
 
         $news = new News;
         $news->title=$request->title;
+        $news->slug=$request->slug;
         $news->body=$request->body;
         $news->save();
 
@@ -88,12 +90,14 @@ class NewsController extends Controller
     {
         $this -> validate($request, array(
             'title'=>'required|max:255',
+            'slug'=>'required|alpha_dash|min:5|max:255|unique:news,slug',
             'body'=>'required'
         ));
 
         $news=News::find($id);
         
         $news->title=$request->input('title');
+        $news->slug=$request->input('slug');
         $news->body=$request->input('body');
 
         $news->save();
