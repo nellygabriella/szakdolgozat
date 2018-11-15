@@ -24,7 +24,7 @@
 
                             <div class="news-posts">
 
-                                @foreach($news as $news)
+                                @foreach($news as $n)
                                 <!--News Post-->
                                     <div class="news-post">
                                         <div class="news-post-image">
@@ -33,13 +33,13 @@
                                         <div class="news-post-top d-flex flex-column flex-sm-row">
                                             <div class="news-post-date-container">
                                                 <div class="news-post-date d-flex flex-column align-items-center justify-content-center">
-                                                    <div>{{date('j',strtotime($news->created_ad))}}</div>
-                                                    <div>{{date('M',strtotime($news->created_ad))}}</div>
+                                                    <div>{{date('j',strtotime($n->created_ad))}}</div>
+                                                    <div>{{date('M',strtotime($n->created_ad))}}</div>
                                                 </div>
                                             </div>
                                             <div class="news-post-title-container">
                                                 <div class="news-post-title">
-                                                    <a href="{{route('news.show',$news->id)}}">{{$news->title}}</a>
+                                                    <a href="{{route('news.show',$n->id)}}">{{$n->title}}</a>
                                                 </div>
                                                 <div class="news-post-meta">
                                                     <span class="news-post-author"><a href="#">Szerző</a></span>
@@ -49,25 +49,23 @@
                                             </div>
                                         </div>
                                         <div class="news-post-text">
-                                            <p>{{substr($news->body,0,200)}}{{strlen($news->body)>200?"...":""}}</p>
+                                            <p>{{substr($n->body,0,200)}}{{strlen($n->body)>200?"...":""}}</p>
                                         </div>
                                         <div class="news-post-button text-center trans_200">
                                             <a href="#">Több</a>
                                         </div>
                                     </div>
-                                @endforeach
+                                    @endforeach
 
                             </div>
 
                             <!--Page Nav-->
                             <div class="news-page-nav">
                                 <ul>
-                                    <li class="active text-center trans_200"><a href="#">1</a></li>
-                                    <li class="text-center trans_200"><a href="#">2</a></li>
-                                    <li class="text-center trans_200"><a href="#">3</a></li>
+                                    <li class="active text-center trans_200">{{ $news->links() }}</li>
                                 </ul>
                             </div>
-
+                            
                         </div>
 
                         <div class="col-lg-4">

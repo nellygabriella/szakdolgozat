@@ -2,10 +2,14 @@
 
     namespace App\Http\Controllers;
 
+    use App\News;
+
     class PagesController extends Controller{
 
         public function getIndex(){
-            return view('pages.welcome');
+            
+            $news=News::orderBy('created_at','desc')->limit(4)->get();
+            return view('pages.welcome')->withNews($news);
         }
 
         public function getNews(){

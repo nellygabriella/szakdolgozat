@@ -138,99 +138,43 @@
                 <div class="row">
                     <div class="col">
                         <div class="section-title text-center">
-                            <h1>Események</h1>
+                            <h1>Hírek/Események</h1>
                         </div>
                     </div>
                 </div>
 
                 <div class="event-items">
 
-                    <div class="row event-item">
-                        <div class="col">
-                            <div class="row d-flex flex-row align-items-end">
 
-                                <div class="col-lg-2 order-lg-1 order-2">
-                                    <div class="event-date d-flex flex-column align-items-center justify-content-center">
-                                        <div class="event-day">07</div>
-                                        <div class="event-month">January</div>
+                    @foreach($news as $n)
+                        <div class="row event-item">
+                            <div class="col">
+                                <div class="row d-flex flex-row align-items-end">
+
+                                    <div class="col-lg-2 order-lg-1 order-2">
+                                        <div class="event-date d-flex flex-column align-items-center justify-content-center">
+                                            <div class="event-day">{{date('j ',strtotime($n->created_at))}}</div>
+                                            <div class="event-month">{{date('M ',strtotime($n->created_at))}}</div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-lg-6 order-lg-2 order-3">
-                                    <div class="event-content">
-                                        <div class="event-name"><a class="trans_200" href="#">Student Festival</a></div>
-                                        <div class="event-location">Grand Central Park</div>
-                                        <p>Aenean id varius dui. Integer vel turpis id nisi bibendum dignissim. Aliquam at nunc orci. Donec elementum, odio ac malesuada tempor, enim velit aliquet magna, tristique fermentum est orci sagittis augue. Curabitur ultrices turpis quis nulla sodales convallis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam elementum ac libero in vulputate. Sed in blandit erat. Etiam malesuada cursus tortor, ac interdum diam. Nam posuere lobortis ante ac semper. Integer metus sapien, iaculis rhoncus tortor ut, volutpat mattis enim. Nunc sit amet nisl dapibus, posuere felis ac, auctor mauris.</p>
+                                    <div class="col-lg-6 order-lg-2 order-3">
+                                        <div class="event-content">
+                                            <div class="event-name"><a class="trans_200" href="#">{{$n->title}}</a></div>
+                                            <p>{{substr($n->body,0,300)}}{{strlen($n->body)>300 ? "..." : ""</p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-lg-4 order-lg-3 order-1">
-                                    <div class="event-image">
-                                        <img src="images/event_1.jpg">
+                                    <div class="col-lg-4 order-lg-3 order-1">
+                                        <div class="event-image">
+                                            <img src="images/event_1.jpg">
+                                        </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row event-item">
-                        <div class="col">
-                            <div class="row d-flex flex-row align-items-end">
-
-                                <div class="col-lg-2 order-lg-1 order-2">
-                                    <div class="event-date d-flex flex-column align-items-center justify-content-center">
-                                        <div class="event-day">07</div>
-                                        <div class="event-month">January</div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 order-lg-2 order-3">
-                                    <div class="event-content">
-                                        <div class="event-name"><a class="trans_200" href="#">Student Festival</a></div>
-                                        <div class="event-location">Grand Central Park</div>
-                                        <p>Aenean id varius dui. Integer vel turpis id nisi bibendum dignissim. Aliquam at nunc orci. Donec elementum, odio ac malesuada tempor, enim velit aliquet magna, tristique fermentum est orci sagittis augue. Curabitur ultrices turpis quis nulla sodales convallis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam elementum ac libero in vulputate. Sed in blandit erat. Etiam malesuada cursus tortor, ac interdum diam. Nam posuere lobortis ante ac semper. Integer metus sapien, iaculis rhoncus tortor ut, volutpat mattis enim. Nunc sit amet nisl dapibus, posuere felis ac, auctor mauris.</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 order-lg-3 order-1">
-                                    <div class="event-image">
-                                        <img src="images/event_1.jpg">
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row event-item">
-                        <div class="col">
-                            <div class="row d-flex flex-row align-items-end">
-
-                                <div class="col-lg-2 order-lg-1 order-2">
-                                    <div class="event-date d-flex flex-column align-items-center justify-content-center">
-                                        <div class="event-day">07</div>
-                                        <div class="event-month">January</div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 order-lg-2 order-3">
-                                    <div class="event-content">
-                                        <div class="event-name"><a class="trans_200" href="#">Student Festival</a></div>
-                                        <div class="event-location">Grand Central Park</div>
-                                        <p>Aenean id varius dui. Integer vel turpis id nisi bibendum dignissim. Aliquam at nunc orci. Donec elementum, odio ac malesuada tempor, enim velit aliquet magna, tristique fermentum est orci sagittis augue. Curabitur ultrices turpis quis nulla sodales convallis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam elementum ac libero in vulputate. Sed in blandit erat. Etiam malesuada cursus tortor, ac interdum diam. Nam posuere lobortis ante ac semper. Integer metus sapien, iaculis rhoncus tortor ut, volutpat mattis enim. Nunc sit amet nisl dapibus, posuere felis ac, auctor mauris.</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 order-lg-3 order-1">
-                                    <div class="event-image">
-                                        <img src="images/event_1.jpg">
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
             </div>

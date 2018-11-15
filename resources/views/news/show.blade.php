@@ -24,7 +24,13 @@
                         {!!Html::linkRoute('news.edit', 'Szerkeszt', array($news->id),array('class'=>'btn btn-primary btn-block'))!!}
                     </div>
                     <div class="col-sm-6">
-                        {!!Html::linkRoute('news.destroy', 'Töröl', array($news->id),array('class'=>'btn btn-primary btn-block'))!!}
+
+                        {!! Form::open(['route'=>['news.destroy',$news->id],'method' => 'DELETE']) !!}
+
+                        {!! Form::submit('Törlés',['class'=>'btn btn-danger btn-block']) !!}
+
+                        {!! Form::close() !!}
+
                     </div>
                 </div>
             </div>
