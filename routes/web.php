@@ -15,17 +15,13 @@
 
 Route::group(['middlewire'=>['web']], function(){
 
+    Route::get('post/{slug}', ['as'=>'post.single', 'uses'=>'PostController@getSingle']);
     Route::get('/', 'PagesController@getIndex');
-
     Route::get('/allasok', 'PagesController@getJobs');
-
     Route::get('/jegyzetek', 'PagesController@getNotes');
-
     Route::get('/projektek', 'PagesController@getProjects');
-
     Route::get('/kapcsolat', 'PagesController@getContact');
-
     Route::get('/forum', 'PagesController@getQuestions');
-
     Route::resource('news', 'NewsController');
+
 });

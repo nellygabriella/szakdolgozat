@@ -160,7 +160,7 @@
 
                                     <div class="col-lg-6 order-lg-2 order-3">
                                         <div class="event-content">
-                                            <div class="event-name"><a class="trans_200" href="#">{{$n->title}}</a></div>
+                                            <div class="event-name"><a class="trans_200" href="{{ url('news/'.$n->slug) }}">{{$n->title}}</a></div>
                                             <p>{{substr($n->body,0,300)}}{{strlen($n->body)>300 ? "..." : ""</p>
                                         </div>
                                     </div>

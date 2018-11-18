@@ -12,7 +12,7 @@
             <div class="well">
                 <dl class="dl-horizontal">
                     <dt>URL: </dt>
-                    <dd><a href="{{url($news->slug)}}">{{url($news->slug}})</a></dd>
+                    <dd><a href="{{url('post/'.$news->slug)}}">{{url($news->slug) }}</a></dd>
                 </dl>
                 <dl class="dl-horizontal">
                     <dt>Készült: </dt>

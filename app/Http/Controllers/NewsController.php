@@ -88,11 +88,21 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this -> validate($request, array(
-            'title'=>'required|max:255',
-            'slug'=>'required|alpha_dash|min:5|max:255|unique:news,slug',
-            'body'=>'required'
-        ));
+        $news = News::find($id);
+
+        if($request->input('slug')== $news->slug){
+            $this->validate($request, array(
+                'title' => 'required|max:255',
+                'body' => 'required'
+            ));
+        }else{
+        
+            $this -> validate($request, array(
+                'title'=>'required|max:255',
+                'slug'=>'required|alpha_dash|min:5|max:255|unique:news,slug'.$id,
+                'body'=>'required'
+            ));
+        }
 
         $news=News::find($id);
         
@@ -122,4 +132,7 @@ class NewsController extends Controller
         Session::flash('succes','A post sikeresen törölve.');
         return redirect()->route('news.index');
     }
+
+    
+
 }
