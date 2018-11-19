@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\News;
+use App\Tag;
 use Session;
 
 class NewsController extends Controller
@@ -27,7 +28,9 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news.create');
+        $tags= Tag::all();
+
+        return view('news.create')->withTags($tags);
     }
 
     /**
@@ -49,6 +52,8 @@ class NewsController extends Controller
         $news->slug=$request->slug;
         $news->body=$request->body;
         $news->save();
+
+        $news->tags()->sync($request->tags, false);
 
         Session::flash('success','A bejegyzés sikeresen el lett mentve.');
 
@@ -76,7 +81,13 @@ class NewsController extends Controller
     public function edit($id)
     {
         $news = News::find($id);
-        return view('news.edit')->withNews($news);
+
+        $tags = Tag::all();
+        $tags2 = array();
+        foreach ($tags as $tag){
+            $tags2[$tag->id]= $tag->name;
+        }
+        return view('news.edit')->withNews($news)->withTags($tags2);
     }
 
     /**
@@ -111,6 +122,12 @@ class NewsController extends Controller
         $news->body=$request->input('body');
 
         $news->save();
+
+        if(isset($request->tags)){
+            $news->tags()->sync($request->tags);
+        } else {
+            $news->tags()->sync(array());
+        }
 
         Session::flash('success','A post sikeresen mentve.');
 

@@ -13,6 +13,9 @@
                 {{Form::label('slug','Slug',['class'=>'form-spacing-top'])}}
                 {{Form::text('slug',null,['class'=>'form-control input-lg form-spacing-top'])}}
 
+                {{ Form::label('tags', 'Tags:', ['class' => 'form-spacing-top']) }}
+                {{ Form::select('tags[]', $tags, null, ['class' => 'form-control select2-multi', 'multiple' => 'multiple']) }}
+
                 {{Form::label('body',"Body",['class'=>'form-spacing-top'])}}
                 {{Form::textarea('body',null,['class'=>'form-control'])}}
             </div>
@@ -43,3 +46,16 @@
     </div>
 
 @stop
+
+
+@section('scripts')
+
+    {!!Html::script('js/select2.min.js')!!}
+
+    <scripts type="text/javascript">
+    
+        $('.select2-multi').select2();
+        $('.select2-multi').select2().val({!! json_encode($news->tags()->allRelatedIds())!!}).trigger('change');
+    </scripts>
+
+@endsection
