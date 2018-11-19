@@ -33,6 +33,8 @@ Route::group(['middlewire'=>['web']], function(){
     Route::get('post/{slug}', ['as'=>'post.single', 'uses'=>'PostController@getSingle']);
     Route::get('/', 'PagesController@getIndex');
 
+    Route::resource('tags','TagController',['except'=>['create']]);
+
     Route::get('/allasok', 'PagesController@getJobs');
     Route::get('/jegyzetek', 'PagesController@getNotes');
     Route::get('/projektek', 'PagesController@getProjects');
