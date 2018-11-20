@@ -38,11 +38,12 @@
                                 <div class="contact-title">Írj üzenetet</div>
 
                                 <div class="contact-form-container">
-                                    <form action="post">
-                                        <input id="contact_form_name" class="input-field contact-form-name" type="text" placeholder="Név" required="required" data-error="Kötelező kitölteni!">
-                                        <input id="contact_form_email" class="input-field contact-form-email" type="email" placeholder="E-mail" required="required" data-error="Hibás email cím!">
-                                        <textarea id="contact_form_message" class="text-field contact-form-message" name="message" placeholder="Üzenet" required="required" data-error="Hagyj üzenetet."></textarea>
-                                        <button id="contact_send_btn" class="contact-send-btn trans_200" type="button" value="Submit">Küldés</button>
+                                    <form action="{{ url('kapcsolat') }}" method="POST">
+                                        {{csrf_field()}}
+                                        <input id="subject" name="subject" class="input-field contact-form-name" type="text" placeholder="Név" required="required" data-error="Kötelező kitölteni!">
+                                        <input id="email" name="email" class="input-field contact-form-email" type="email" placeholder="E-mail" required="required" data-error="Hibás email cím!">
+                                        <textarea id="message" name="message" class="text-field contact-form-message" name="message" placeholder="Üzenet" required="required" data-error="Hagyj üzenetet."></textarea>
+                                        <input type="submit" value="Send Message" class="btn btn-success">
                                     </form>
                                 </div>
                             </div>

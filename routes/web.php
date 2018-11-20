@@ -39,6 +39,7 @@ Route::group(['middlewire'=>['web']], function(){
     Route::get('/jegyzetek', 'PagesController@getNotes');
     Route::get('/projektek', 'PagesController@getProjects');
     Route::get('/kapcsolat', 'PagesController@getContact');
+    Route::post('/kapcsolat','pagesController@postContact');
     Route::get('/forum', 'PagesController@getQuestions');
 
     Route::resource('news', 'NewsController');
