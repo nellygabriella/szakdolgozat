@@ -21,16 +21,6 @@ class TagController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -40,8 +30,8 @@ class TagController extends Controller
     {
         $this->validate($request, array('name'=>'required|max:255'));
 
-        $tag= new Tag;
-        $tag->name=$request->name;
+        $tag = new Tag;
+        $tag->name = $request->name;
         $tag->save();
 
         Session::flash('success','Új tag létrehozva');
@@ -57,7 +47,8 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $tag = Tag::find($id);
+        return view('tags.show')->withTag($tag);
     }
 
     /**
@@ -68,7 +59,8 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag= Tag::find($id);
+        return view('tags.edit')->withTag($tag);
     }
 
     /**
@@ -80,7 +72,16 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tag=Tag::find($id);
+
+        $this->validate($request,['name'=>'required|max:255']);
+
+        $tag -> name = $request->name;
+        $tag -> save();
+
+        Session::flash('success','Az új tag sikeresen mentve');
+
+        return redirect()->route('tags.show',$tag->id);
     }
 
     /**
@@ -91,6 +92,13 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag->news()->detach();
+
+        $tag->delete();
+
+        Session::flash('success', 'A tag sikeresen törölve');
+
+        return redirect()->route('tags.index');
     }
 }

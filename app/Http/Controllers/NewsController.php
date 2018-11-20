@@ -41,6 +41,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request,array(
             'title'=>'required|max:255',
             'slug'=>'required|alpha_dash|min:5|max:255|unique:news,slug',
@@ -123,11 +124,13 @@ class NewsController extends Controller
 
         $news->save();
 
-        if(isset($request->tags)){
+        $news->tags()->sync($request->tags,false);
+
+        /*if(isset($request->tags)){
             $news->tags()->sync($request->tags);
         } else {
             $news->tags()->sync(array());
-        }
+        }*/
 
         Session::flash('success','A post sikeresen mentve.');
 
@@ -143,6 +146,7 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $news = News::find($id);
+        $news->tags()->detach();
 
         $news -> delete();
 

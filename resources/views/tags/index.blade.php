@@ -15,6 +15,7 @@
 					</tr>
 				</thead>
 
+				
 				<tbody>
 					@foreach ($tags as $tag)
 					<tr>
@@ -23,6 +24,7 @@
 					</tr>
 					@endforeach
 				</tbody>
+				
 			</table>
 		</div> <!-- end of .col-md-8 -->
 

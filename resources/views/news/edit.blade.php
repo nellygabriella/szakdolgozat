@@ -1,6 +1,11 @@
 @extends('main')
 @section('title','|Edit Blog')
 
+@section('stylesheets')
+    {!!Html::style('css/parsley.css')!!}
+    {!!Html::style('css/select2.min.css')!!}
+@endsection
+
 @section('content')
 
     <div class="row">
@@ -14,7 +19,7 @@
                 {{Form::text('slug',null,['class'=>'form-control input-lg form-spacing-top'])}}
 
                 {{ Form::label('tags', 'Tags:', ['class' => 'form-spacing-top']) }}
-                {{ Form::select('tags[]', $tags, null, ['class' => 'form-control select2-multi', 'multiple' => 'multiple']) }}
+                {{ Form::select('tags[]', $tags, null, ['class' => 'form-controlselect2-multi', 'multiple' => 'multiple']) }}
 
                 {{Form::label('body',"Body",['class'=>'form-spacing-top'])}}
                 {{Form::textarea('body',null,['class'=>'form-control'])}}
