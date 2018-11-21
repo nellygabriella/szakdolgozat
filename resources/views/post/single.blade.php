@@ -7,6 +7,7 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+			<img src="{{asset('images/'.$news->image)}}" height="400" width="800"/>
             <h1>{{ $news->title}}</h1>
             <p>{{$news->body}}</p>
         </div>

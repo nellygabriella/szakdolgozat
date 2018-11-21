@@ -9,6 +9,8 @@
 
     <div class="row">
         <div class="col-md-8">
+
+            <img src="{{asset('images/'.$news->image)}}" alt="Akép nem jeleníthető meg"/>
             <h1>{{ $news->title }}</h1>
             <p class="lead">{!!$news->body!!}</p>
             <hr>

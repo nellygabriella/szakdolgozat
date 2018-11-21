@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\News;
 use App\Tag;
 use Session;
+use Image;
+use Storage;
 
 class NewsController extends Controller
 {
@@ -45,13 +47,25 @@ class NewsController extends Controller
         $this->validate($request,array(
             'title'=>'required|max:255',
             'slug'=>'required|alpha_dash|min:5|max:255|unique:news,slug',
-            'body'=>'required'
+            'body'=>'required',
+            'featured_image' => 'sometimes|image'
         ));
 
         $news = new News;
         $news->title=$request->title;
         $news->slug=$request->slug;
         $news->body=$request->body;
+
+        if($request->hasFile('featured_image')){
+
+            $image=$request->file('featured_image');
+            $filename = time().'.'.$image->getClientOriginalExtension();
+            $location = public_path('images/'.$filename);
+            Image::make($image)->resize(800,400)->save($location);
+
+            $news->image=$filename;
+        }
+
         $news->save();
 
         $news->tags()->sync($request->tags, false);
@@ -122,6 +136,19 @@ class NewsController extends Controller
         $news->slug=$request->input('slug');
         $news->body=$request->input('body');
 
+        if($request->hasFile('featured_image')){
+
+            $image=$request->file('featured_image');
+            $filename = time().'.'.$image->getClientOriginalExtension();
+            $location = public_path('images/'.$filename);
+            Image::make($image)->resize(800,400)->save($location);
+            $oldfilename =$news->image;
+
+            $news->image=$filename;
+
+            Storage::delete($oldfilename);
+        }
+
         $news->save();
 
         $news->tags()->sync($request->tags,false);
@@ -147,6 +174,7 @@ class NewsController extends Controller
     {
         $news = News::find($id);
         $news->tags()->detach();
+        Storage::delete($news->image);
 
         $news -> delete();
 

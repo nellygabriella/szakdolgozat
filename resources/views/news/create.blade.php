@@ -20,7 +20,7 @@
         @section('content')
         <div class="col-lg-8">
             <div class="create-post">
-            {!! Form::open(array('route' => 'news.store','data-parsley-validate' => '')) !!}
+            {!! Form::open(array('route' => 'news.store','data-parsley-validate' => '', 'files'=>true)) !!}
 
                 {{Form::label('title', 'Title: ')}}
                 {{Form::text('title', null, array('class'=>'form-control', 'required'=>'', 'maxlength'=>'255'))}}
@@ -34,6 +34,9 @@
 						<option value='{{ $tag->id }}'>{{ $tag->name }}</option>
 					@endforeach
                 </select>
+
+                {{ Form::label('featured_image', 'Kiemelt kép:')}}
+                {{ Form::file('featured_image')}}
 
                 {{Form::label('body','Post Body: ')}}
                 {{Form::textarea('body',null,array('class'=>'form-control','required'=>''))}}
