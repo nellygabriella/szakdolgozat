@@ -10,13 +10,33 @@
     <div class="row">
         <div class="col-md-8">
             <h1>{{ $news->title }}</h1>
-            <p class="lead">{{$news->body}}</p>
+            <p class="lead">{!!$news->body!!}</p>
             <hr>
             <div class="tags">
 				@foreach ($news->tags as $tag)
 					<span class="label label-default">{{ $tag->name }}</span>
 				@endforeach
             </div>
+        </div>
+        <div id="backend-comments" style="margin-top: 50px;">
+				<h3>Comments <small>{{ $news->comments()->count() }} total</small></h3>
+
+				<table class="table">
+					<thead>
+							<th>Comment</th>
+					</thead>
+
+					<tbody>
+						@foreach ($news->comments as $comment)
+						<tr>
+							<td>{{ $comment->comment }}</td>
+							<td>
+								<a href="{{ route('comments.delete', $comment->id) }}" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+							</td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
         </div>
         <div class="col-md-4">
             <div class="well">
